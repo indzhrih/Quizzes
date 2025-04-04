@@ -15,6 +15,9 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: <%= ENV["QUIZZES_USER"] %>
+  host: <%= ENV["QUIZZES_HOST"] %>
+  port: <%= ENV["QUIZZES_PORT"] %>
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -23,10 +26,7 @@ default: &default
 development:
   <<: *default
   database: <%= ENV["QUIZZES_DEVELOPMENT_DATABASE_NAME"] %>
-  username: <%= ENV["QUIZZES_USER"] %>
   password: <%= ENV["QUIZZES_DEVELOPMENT_DATABASE_PASSWORD"] %>
-  host: <%= ENV["QUIZZES_HOST"] %>
-  port: <%= ENV["QUIZZES_PORT"] %>
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
   # When left blank, PostgreSQL will use the default role. This is
@@ -60,10 +60,7 @@ development:
 test:
   <<: *default
   database: <%= ENV["QUIZZES_TEST_DATABASE_NAME"] %>
-  username: <%= ENV["QUIZZES_USER"] %>
   password: <%= ENV["QUIZZES_TEST_DATABASE_PASSWORD"] %>
-  host: <%= ENV["QUIZZES_HOST"] %>
-  port: <%= ENV["QUIZZES_PORT"] %>
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -87,7 +84,5 @@ test:
 production:
   <<: *default
   database: <%= ENV["QUIZZES_PRODUCTION_DATABASE_NAME"] %>
-  username: <%= ENV["QUIZZES_USER"] %>
   password: <%= ENV["QUIZZES_PRODUCTION_DATABASE_PASSWORD"] %>
-  host: <%= ENV["QUIZZES_HOST"] %>
-  port: <%= ENV["QUIZZES_PORT"] %>
+
