@@ -13,6 +13,9 @@ gem "jbuilder"
 # Shim to load environment variables from .env into ENV in development. [https://github.com/bkeepers/dotenv#rails]
 gem "dotenv-rails", "~> 2.7.6"
 
+# Centralization of locale data collection for Ruby on Rails.[https://github.com/svenfuchs/rails-i18n]
+gem "rails-i18n"
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
